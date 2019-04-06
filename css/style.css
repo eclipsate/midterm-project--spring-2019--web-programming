@@ -1,0 +1,89 @@
+body {
+  width: auto;
+  background-image: url("cover.png");
+  background-size: cover;
+  background-position: middle;
+  color: #2b2b2b;
+  padding: 3.2em;
+  line-height: 1.5em;
+  letter-spacing: 0.5px;
+  text-align: justify;
+  font-size: 14px;
+  font-family: "Pontano Sans", sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  letter-spacing: 0.1em;
+  line-height: 2.1em;
+  color: #3ea086;
+  text-align: center;
+  /* font-style: "Orbitron", sans-serif; */
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.4em;
+  text-align: center;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1.4em;
+  text-decoration: underline;
+}
+
+hr {
+  width: 75%;
+  margin-bottom: 2em;
+  color: #3ea086;
+}
+
+img {
+  border: 1px solid #3ea086;
+  padding: 0.5em;
+}
+
+a {
+  color: #3ea086;
+  text-decoration: none;
+}
+a:hover {
+  color: #000;
+}
+
+#text-right {
+  margin: auto;
+  width: 85%;
+  padding-bottom: 1em;
+}
+
+.flex-container {
+  /* background-color: #fff;
+  opacity: 0.4; */
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+  width: 100%;
+  padding-bottom: 1.5em;
+}
+.flex-container .box {
+  margin: auto;
+  overflow: visible;
+  text-align: justify;
+}
+
+#main {
+  margin: auto;
+}
+
+.button {
+  width: 11em;
+  font-size: 1.2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  margin: 2em 0em 2em 0em;
+  color: #000;
+}
