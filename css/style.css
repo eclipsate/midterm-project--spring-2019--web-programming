@@ -3,23 +3,50 @@ body {
   background-image: url("cover.png");
   background-size: cover;
   background-position: middle;
-  color: #2b2b2b;
+  color: #47097c;
   padding: 3.2em;
   line-height: 1.5em;
   letter-spacing: 0.5px;
   text-align: justify;
   font-size: 14px;
-  font-family: "Pontano Sans", sans-serif;
+  font-family: 'Special Elite', cursive;
   font-weight: 300;
 }
 
 h1 {
   letter-spacing: 0.1em;
   line-height: 2.1em;
-  color: #3ea086;
+  color: #47097c;
   text-align: center;
-  /* font-style: "Orbitron", sans-serif; */
-  font-size: 2em;
+  font-size: 4em;
+}
+
+.button {
+  width: 11em;
+  font-size: 1.2em;
+  padding: 0.5em;
+  border: 2px solid #000;
+  background-color: transparent;
+  margin: 2em 0em 2em 0em;
+  color: #47097c;
+  transition: width 9s;
+  transition-timing-function: linear;
+}
+
+.button:hover {
+  background-color: #000;
+  border: 2px solid #fff;
+  letter-spacing: 0.3em;
+  transition: width 9s;
+  transition-timing-function: linear;
+}
+
+a {
+  color: #47097c;
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
 }
 
 h2 {
@@ -44,13 +71,7 @@ img {
   padding: 0.5em;
 }
 
-a {
-  color: #3ea086;
-  text-decoration: none;
-}
-a:hover {
-  color: #000;
-}
+
 
 #text-right {
   margin: auto;
@@ -75,15 +96,4 @@ a:hover {
 
 #main {
   margin: auto;
-}
-
-.button {
-  width: 11em;
-  font-size: 1.2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  margin: 2em 0em 2em 0em;
-  color: #000;
 }
