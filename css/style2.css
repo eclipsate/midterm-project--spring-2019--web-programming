@@ -1,6 +1,7 @@
 body {
   width: auto;
   background-color: #e8e8e8;
+  /* background-image: url("background.png"); */
   color: #2b2b2b;
   padding: 2.5em;
   line-height: 1.5em;
@@ -13,11 +14,19 @@ body {
 
 h1 {
   letter-spacing: 0.1em;
-  line-height: 2.1em;
+  /* line-height: 2.1em; */
   color: #47097c;
   text-align: center;
   font-family: 'Special Elite', cursive;
   font-size: 2em;
+  text-decoration: underline;
+}
+
+#p5-sketch {
+   display: flex;
+   flex-wrap: nowrap;
+   margin: auto;
+   padding-bottom: 1.5em;
 }
 
 h2 {
@@ -66,6 +75,7 @@ a:hover {
   margin: auto;
   overflow: visible;
   text-align: justify;
+  padding-left: 2em;
 }
 
 #main {

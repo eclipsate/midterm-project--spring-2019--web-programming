@@ -29,16 +29,19 @@ h1 {
   background-color: transparent;
   margin: 2em 0em 2em 0em;
   color: #47097c;
-  transition: width 9s;
-  transition-timing-function: linear;
+  /* transition: all 5s ease 5s; */
+  /* width 9s; */
+  /* transition-timing-function: linear; */
+
 }
 
 .button:hover {
   background-color: #000;
   border: 2px solid #fff;
   letter-spacing: 0.3em;
-  transition: width 9s;
-  transition-timing-function: linear;
+    transition: all 3s ease 2s;
+  /* transition: width 9s;
+  transition-timing-function: linear; */
 }
 
 a {

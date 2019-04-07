@@ -1,38 +1,42 @@
-const x = 100;
-const y = 100;
-const height = 500;
-const width = 500;
-
-
-function makeLines() {
-    //horizontal
-    strokeWeight(3);
-    stroke(255);
-    y = y - 1;
-    if (y < 0) {
-        y = height;
-    }
-    line(0, y, width, y);
-
-    //vertical
-    stroke(random(255), random(255), random(255));
-    x = x - 1;
-    if (x < 0) {
-        x = width;
-    }
-    line(x, 0, x, height);
-}
+const BACKGROUND_COLOR = `#000`;
+const WWIDTH = 600;
+const HHEIGHT = 300;
+let input, button, greeting;
 
 function setup() {
-    createCanvas(width, height);
-    background(220);
-    // noLoop();
+    var cnv = createCanvas(WWIDTH, HHEIGHT);
+    cnv.parent('p5-sketch');
+    background(BACKGROUND_COLOR);
+    input = createInput();
+    input.position(20, 65);
+
+    button = createButton('submit');
+    button.position(input.x + input.width, 65);
+    button.mousePressed(greet);
+
+    greeting = createElement('h2', 'what is your name?');
+    greeting.position(20, 5);
+
+    textAlign(CENTER);
+    textSize(50);
+}
+
+function greet() {
+  const name = input.value();
+  greeting.html('hello ' + name + '!');
+  input.value('');
+
+  for (let i = 0; i < 200; i++) {
+    push();
+    fill(random(255), 255, 255);
+    translate(random(width), random(height));
+    rotate(random(2 * PI));
+    text(name, 0, 0);
+    pop();
+  }
 }
 
 function draw() {
-    // makeLines();
-    fill(0, 0, 255, 100);
-    stroke(0, 100, 0);
-    ellipse(mouseX, mouseY, 50, 50);
 
+    greet();
 }
