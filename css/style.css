@@ -3,6 +3,7 @@ body {
   background-image: url("cover.png");
   background-size: cover;
   background-position: middle;
+  background-repeat: no-repeat;
   color: #47097c;
   padding: 3.2em;
   line-height: 1.5em;

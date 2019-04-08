@@ -4,6 +4,7 @@ body {
   /* background-image: url("background.png"); */
   color: #2b2b2b;
   padding: 2.5em;
+  padding-top: 1em;
   line-height: 1.5em;
   letter-spacing: 0.5px;
   text-align: justify;
@@ -35,11 +36,34 @@ h2 {
    display: flex;
    flex-wrap: nowrap;
    margin: auto;
-   /* padding-bottom: 1.5em; */
    border: 3px solid #fff;
 }
 
+#p5-sketch2 {
+   display: flex;
+   flex-wrap: nowrap;
+   margin: auto;
+   border: 3px solid #fff;
+}
 
+.button {
+  width: 14em;
+  font-size: 1.2em;
+  font-family: 'Special Elite', cursive;
+  padding: 0.5em;
+  border: 2px solid #000;
+  background-color: transparent;
+  margin: 2em 0em 2em 0em;
+  color: #47097c;
+}
+
+a {
+  color: #47097c;
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
+}
 
 h3 {
   font-size: 1.4em;
@@ -55,14 +79,6 @@ hr {
 img {
   border: 1px solid #3ea086;
   padding: 0.5em;
-}
-
-a {
-  color: #3ea086;
-  text-decoration: none;
-}
-a:hover {
-  color: #000;
 }
 
 #text-right {
@@ -86,15 +102,4 @@ a:hover {
 
 #main {
   margin: auto;
-}
-
-.button {
-  width: 11em;
-  font-size: 1.2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  margin: 2em 0em 2em 0em;
-  color: #000;
 }

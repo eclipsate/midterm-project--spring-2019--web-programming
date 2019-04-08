@@ -9,14 +9,14 @@ function setup() {
     background(BACKGROUND_COLOR);
     fill(255);
     input = createInput();
-    input.position(WWIDTH/1.3, HHEIGHT/1.69);
+    input.position(WWIDTH/1.3, HHEIGHT/1.95);
 
     // button = createButton('submit');
     // button.position(input.x + input.width, 65);
     // button.mousePressed(greet);
 
     question = createElement('h2', 'what is your sexuality?');
-    question.position(WWIDTH/2.8, HHEIGHT/1.9);
+    question.position(WWIDTH/2.8, HHEIGHT/2.2);
 
     textAlign(CENTER);
     textSize(50);
