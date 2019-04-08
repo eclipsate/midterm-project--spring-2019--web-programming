@@ -18,7 +18,7 @@
 </head>
 
 <body>
-   <h1>everyone has the right to be who they are</h1>
+   <a href="cover.html"><h1>everyone has the right to be who they are</h1></a>
    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo vitae, dicta iure porro odit labore non! Officia, dolorum cumque alias sed odit eos ratione porro distinctio fugiat ut dicta minima. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil fuga ratione eaque distinctio voluptas, ipsum autem, quae, doloribus magnam aliquam quod accusamus vero perferendis aut cumque pariatur ullam nostrum dolores!</p>
 <br>
    <div class="flex-container">
@@ -35,11 +35,17 @@
 
    <hr>
 
-   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita laboriosam quo soluta modi dolor, id fuga doloribus eveniet fugiat doloremque nihil, rem. Harum, labore inventore veritatis aut repudiandae ipsum quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, obcaecati odit facilis molestias. Repellat accusantium vel cum inventore, illum qui rem distinctio sapiente eligendi fugiat. Dignissimos minima sed facere reprehenderit.</p>
+   <p>Press any letter on the keyboard in the input box below to hear what sound it will make. You can experiment by typing a sentence about your personal relationship to gay and transgender rights. ((Depending on how fast you type, you'll have an interesting song on your hands!)) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non at quibusdam, numquam dignissimos facere quia nulla natus ratione fuga asperiores autem tempore vero, cupiditate fugit minus amet magni officiis.</p>
+   <br>
 
-   <tone-demo autoplay>
+   <!-- <tone-demo autoplay>
      <tone-keyboard octaves="2"></tone-keyboard>
-   </tone-demo>
+   </tone-demo> -->
+<center>
+<textarea rows="5" cols="100">
+Why are gay and transgender rights important to you?
+</textarea>
+</center>
 
 <script>
 //create a synth and connect it to the master output (your speakers)
@@ -48,16 +54,147 @@
 // //play a middle 'C' for the duration of an 8th note
 // synth.triggerAttackRelease("C4", "8n");
 
-const synth = new Tone.AMSynth().toMaster()
+// const synth = new Tone.AMSynth().toMaster()
+//
+// //attach a listener to the keyboard events
+// document.querySelector('tone-keyboard').addEventListener('noteon', e => {
+//   synth.triggerAttack(e.detail.name)
+// })
+//
+// document.querySelector('tone-keyboard').addEventListener('noteoff', e => {
+//   synth.triggerRelease()
+// })
 
-//attach a listener to the keyboard events
-document.querySelector('tone-keyboard').addEventListener('noteon', e => {
-  synth.triggerAttack(e.detail.name)
-})
+let octave = 4;
 
-document.querySelector('tone-keyboard').addEventListener('noteoff', e => {
-  synth.triggerRelease()
-})
+const keys = [];
+let prevKey = 0;
+
+const Instruments = {
+  // https://github.com/stuartmemo/qwerty-hancock
+  keyboard: {
+    // Lower octave.
+    a: 'Cl',
+    w: 'C#l',
+    e: 'C4',
+    r: 'E4',
+    i: 'G4',
+    s: 'Dl',
+    e: 'D#l',
+    d: 'El',
+    f: 'B4',
+    t: 'F#l',
+    g: 'Gl',
+    y: 'G#l',
+    h: 'Al',
+    u: 'A#l',
+    j: 'Bl',
+    // Upper octave.
+    k: 'Cu',
+    o: 'C#u',
+    l: 'Du',
+    p: 'D#u',
+    f: 'Eu',
+    m: 'Fu',
+    z: 'F#u',
+    x: 'C2',
+    v: 'C5',
+    c: 'E5',
+    b: 'C6',
+    n: 'B5',
+  },
+};
+
+let instrument = Instruments.keyboard;
+
+const keyToNote = key => {
+  const note = instrument[ key ];
+  if ( !note ) {
+    return;
+  }
+
+  return Tone.Frequency(
+    note
+      .replace( 'l', octave )
+      .replace( 'u', octave + 1 )
+  ).toNote();
+};
+
+const onKeyDown = (() => {
+  let listener;
+
+  return synth => {
+    document.removeEventListener( 'keydown', listener );
+
+    listener = event => {
+      const { key } = event;
+
+      // Only trigger once per keydown event.
+      if ( !keys[ key ] ) {
+        keys[ key ] = true;
+
+        const note = keyToNote( key );
+        if ( note ) {
+          synth.triggerAttack( note );
+          prevKey = key;
+        }
+      }
+    };
+
+    document.addEventListener( 'keydown', listener );
+  };
+})();
+
+const onKeyUp = (() => {
+  let listener;
+  let prev;
+
+  return synth => {
+    // Clean-up.
+    if ( prev ) {
+      prev.triggerRelease();
+    }
+
+    document.removeEventListener( 'keyup', listener );
+
+    prev = synth;
+    listener = event => {
+      const { key } = event;
+      if ( keys[ key ] ) {
+        keys[ key ] = false;
+
+        const note = keyToNote( key );
+        if ( synth instanceof Tone.PolySynth ) {
+          synth.triggerRelease( note );
+        } else if ( note && key === prevKey ) {
+          // Trigger release if this is the previous note played.
+          synth.triggerRelease();
+        }
+      }
+    };
+
+    document.addEventListener( 'keyup', listener );
+  };
+})();
+
+// Octave controls.
+document.addEventListener( 'keydown', event => {
+  // Decrease octave range (min: 0).
+  if ( event.key === 'z' ) { octave = Math.max( octave - 1, 0 ); }
+  // Increase octave range (max: 10).
+  if ( event.key === 'x' ) { octave = Math.min( octave + 1, 9 ); }
+});
+
+// Init.
+(() => {
+  const synth = new Tone.PolySynth( 10 );
+  synth.toMaster();
+
+  onKeyDown( synth );
+  onKeyUp( synth );
+})();
+
+
 </script>
 
 </body>
