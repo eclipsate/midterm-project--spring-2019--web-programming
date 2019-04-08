@@ -7,7 +7,11 @@
    <script src="js/sketch.js"></script>
    <script src="js/p5.dom.js"></script>
    <script src="js/tone.js"></script>
+   <script src="https://unpkg.com/@webcomponents/webcomponentsjs@^2/webcomponents-bundle.js"></script>
+   <script src="https://unpkg.com/tone"></script>
+   <script src="https://unpkg.com/@tonejs/ui"></script>
    <script language="javascript" type="text/javascript" src="path/to/p5.dom.js"></script>
+
    <link rel="stylesheet" href="css/style2.css">
    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
    <link rel="shortcut icon" href="img/favicon.png">
@@ -33,22 +37,27 @@
 
    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita laboriosam quo soluta modi dolor, id fuga doloribus eveniet fugiat doloremque nihil, rem. Harum, labore inventore veritatis aut repudiandae ipsum quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, obcaecati odit facilis molestias. Repellat accusantium vel cum inventore, illum qui rem distinctio sapiente eligendi fugiat. Dignissimos minima sed facere reprehenderit.</p>
 
-<script>
-//    const synth = new Tone.AMSynth().toMaster()
-// <!--
-//    //attach a listener to the keyboard events -->
-//    document.querySelector('tone-keyboard').addEventListener('noteon', e => {
-//      synth.triggerAttack(e.detail.name)
-//    })
-//
-//    document.querySelector('tone-keyboard').addEventListener('noteoff', e => {
-//      synth.triggerRelease()
-   // })
-   //create a synth and connect it to the master output (your speakers)
-var synth = new Tone.Synth().toMaster();
+   <tone-demo autoplay>
+     <tone-keyboard octaves="2"></tone-keyboard>
+   </tone-demo>
 
-//play a middle 'C' for the duration of an 8th note
-synth.triggerAttackRelease("C4", "8n");
+<script>
+//create a synth and connect it to the master output (your speakers)
+// var synth = new Tone.Synth().toMaster();
+//
+// //play a middle 'C' for the duration of an 8th note
+// synth.triggerAttackRelease("C4", "8n");
+
+const synth = new Tone.AMSynth().toMaster()
+
+//attach a listener to the keyboard events
+document.querySelector('tone-keyboard').addEventListener('noteon', e => {
+  synth.triggerAttack(e.detail.name)
+})
+
+document.querySelector('tone-keyboard').addEventListener('noteoff', e => {
+  synth.triggerRelease()
+})
 </script>
 
 </body>
