@@ -26,7 +26,7 @@ function collage() {
   const sexuality = input.value();
   // greeting.html('what is your sexuality?');
   input.value('');
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 50; i++) {
     push();
     fill(random(255), random(255), random(255));
     translate(random(width), random(height));
