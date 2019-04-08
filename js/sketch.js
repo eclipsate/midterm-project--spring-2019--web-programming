@@ -1,42 +1,42 @@
 const BACKGROUND_COLOR = `#000`;
 const WWIDTH = 600;
 const HHEIGHT = 300;
-let input, button, greeting;
+let input, button, question;
 
 function setup() {
     var cnv = createCanvas(WWIDTH, HHEIGHT);
     cnv.parent('p5-sketch');
     background(BACKGROUND_COLOR);
+    fill(255);
     input = createInput();
-    input.position(20, 65);
+    input.position(WWIDTH/1.3, HHEIGHT/1.69);
 
-    button = createButton('submit');
-    button.position(input.x + input.width, 65);
-    button.mousePressed(greet);
+    // button = createButton('submit');
+    // button.position(input.x + input.width, 65);
+    // button.mousePressed(greet);
 
-    greeting = createElement('h2', 'what is your name?');
-    greeting.position(20, 5);
+    question = createElement('h2', 'what is your sexuality?');
+    question.position(WWIDTH/2.8, HHEIGHT/1.9);
 
     textAlign(CENTER);
     textSize(50);
 }
 
-function greet() {
-  const name = input.value();
-  greeting.html('hello ' + name + '!');
+function collage() {
+  const sexuality = input.value();
+  // greeting.html('what is your sexuality?');
   input.value('');
-
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 100; i++) {
     push();
-    fill(random(255), 255, 255);
+    fill(random(255), random(255), random(255));
     translate(random(width), random(height));
-    rotate(random(2 * PI));
-    text(name, 0, 0);
+    rotate(random(3 * PI));
+    text(sexuality, 0, 0);
     pop();
   }
 }
 
 function draw() {
 
-    greet();
+    collage();
 }

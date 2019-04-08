@@ -6,6 +6,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
    <script src="js/sketch.js"></script>
    <script src="js/p5.dom.js"></script>
+   <script src="js/tone.js"></script>
    <script language="javascript" type="text/javascript" src="path/to/p5.dom.js"></script>
    <link rel="stylesheet" href="css/style2.css">
    <link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
@@ -23,12 +24,32 @@
          </div>
 
          <div class="box">
-            <p>Putting labels on your sexuality is a very constraining and daunting task for most people - especially young people who are still figuring themselves out. Even if you've always thought of yourself as hetrosexual, you may find that when you sit down and think about it, you're not sure which sex you're attracted to and why. The interactive piece on the left was created in p5.js and aims to portray the suffocating feeling that defining your gender or sexuality can cause for some people.
+            <p>Putting labels on your sexuality is a very constraining and daunting task for most people - especially young people who are still figuring themselves out. Even if you've always thought of yourself as hetrosexual, you may find that when you sit down and think about it, you're not sure which sex you're attracted to and why. The interactive piece on the left was created in p5.js and aims to portray the suffocating feeling that defining your gender or sexuality can cause for some people. Type your sexual orientation into the text box on the left and see what happens.
             </p>
       </div>
    </div>
 
    <hr>
+
+   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita laboriosam quo soluta modi dolor, id fuga doloribus eveniet fugiat doloremque nihil, rem. Harum, labore inventore veritatis aut repudiandae ipsum quia. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, obcaecati odit facilis molestias. Repellat accusantium vel cum inventore, illum qui rem distinctio sapiente eligendi fugiat. Dignissimos minima sed facere reprehenderit.</p>
+
+<script>
+//    const synth = new Tone.AMSynth().toMaster()
+// <!--
+//    //attach a listener to the keyboard events -->
+//    document.querySelector('tone-keyboard').addEventListener('noteon', e => {
+//      synth.triggerAttack(e.detail.name)
+//    })
+//
+//    document.querySelector('tone-keyboard').addEventListener('noteoff', e => {
+//      synth.triggerRelease()
+   // })
+   //create a synth and connect it to the master output (your speakers)
+var synth = new Tone.Synth().toMaster();
+
+//play a middle 'C' for the duration of an 8th note
+synth.triggerAttackRelease("C4", "8n");
+</script>
 
 </body>
 
