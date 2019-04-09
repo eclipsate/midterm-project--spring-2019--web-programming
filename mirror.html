@@ -19,172 +19,19 @@
 
 <body>
    <a href="cover.html"><h1>everyone has the right to be who they are</h1></a>
-   <p>Allow your camera to have access so you take a look at yourself in the mirror. </p>
+   <p>Allow your camera to have access so you take a look at yourself in the mirror. Using p5.js, I created a skectch that will invert your webcam image and follow along with your mouse. This symbolizes how your face and physical appearance always follows you - if you're born a male but identify as a female, just looking in the mirror and knowing how others view you can be a very hard thing to deal with. Press any key to end the sketch and have control of your mouse again.</p>
 <br>
-<div id="p5-sketch2">
-   </div>
-   <div class="flex-container">
-      <div class="box">
 
-         </div>
-
-         <div class="box">
-            <p>Putting labels on your sexuality is a very constraining and daunting task for most people - especially young people who are still figuring themselves out. Even if you've always thought of yourself as hetrosexual, you may find that when you sit down and think about it, you're not sure which sex you're attracted to and why. The interactive piece on the left was created in p5.js and aims to portray the suffocating feeling that defining your gender or sexuality can cause for some people. Type your sexual orientation into the text box on the left and see what happens.
-            </p>
-      </div>
+<div class="flex-container">
+   <div id="p5-sketch2">
    </div>
+</div>
 
    <hr>
 
-   <p>Press any letter on the keyboard in the input box below to hear what sound it will make. You can experiment by typing a sentence about your personal relationship to gay and transgender rights. ((Depending on how fast you type, you'll have an interesting song on your hands!)) Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut non at quibusdam, numquam dignissimos facere quia nulla natus ratione fuga asperiores autem tempore vero, cupiditate fugit minus amet magni officiis.</p>
+
    <br>
 
-   <!-- <tone-demo autoplay>
-     <tone-keyboard octaves="2"></tone-keyboard>
-   </tone-demo> -->
-<center>
-<textarea rows="5" cols="100">
-Why are gay and transgender rights important to you?
-</textarea>
-</center>
-<br>
-<hr>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi reiciendis ratione doloremque, omnis distinctio itaque sunt porro, vitae adipisci quo alias, reprehenderit rem temporibus atque deserunt culpa magni illum fuga! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto tenetur eos quis voluptate placeat ipsa error assumenda in fugit beatae aliquam adipisci atque nulla officia culpa fugiat, ea cum excepturi. Lorem ipsum dolor sit amet, consectetur adipisicing elit. In similique aliquid expedita amet porro, perferendis molestiae blanditiis quae ad aspernatur animi ea, repellat, debitis, tempora quis suscipit ducimus reiciendis quibusdam.</p>
-
-<div class="button"><a href="mirror.html" target="_blank">take a look in the mirror</a></div>
-
-<script>
-
-
-let octave = 4;
-
-const keys = [];
-let prevKey = 0;
-
-const Instruments = {
-  // https://github.com/stuartmemo/qwerty-hancock
-  keyboard: {
-    // Lower octave.
-    a: 'Cl',
-    w: 'C#l',
-    e: 'C4',
-    r: 'E4',
-    i: 'G4',
-    s: 'Dl',
-    e: 'D#l',
-    d: 'El',
-    f: 'B4',
-    t: 'F#l',
-    g: 'Gl',
-    y: 'G#l',
-    h: 'Al',
-    u: 'A#l',
-    j: 'Bl',
-    k: 'Cu',
-    o: 'C#u',
-    l: 'Du',
-    p: 'D#u',
-    f: 'Eu',
-    m: 'Fu',
-    z: 'F#u',
-    x: 'C2',
-    v: 'C5',
-    c: 'E5',
-    b: 'C6',
-    n: 'B5',
-  },
-};
-
-let instrument = Instruments.keyboard;
-
-const keyToNote = key => {
-  const note = instrument[ key ];
-  if ( !note ) {
-    return;
-  }
-
-  return Tone.Frequency(
-    note
-      .replace( 'l', octave )
-      .replace( 'u', octave + 1 )
-  ).toNote();
-};
-
-const onKeyDown = (() => {
-  let listener;
-
-  return synth => {
-    document.removeEventListener( 'keydown', listener );
-
-    listener = event => {
-      const { key } = event;
-
-      // Only trigger once per keydown event.
-      if ( !keys[ key ] ) {
-        keys[ key ] = true;
-
-        const note = keyToNote( key );
-        if ( note ) {
-          synth.triggerAttack( note );
-          prevKey = key;
-        }
-      }
-    };
-
-    document.addEventListener( 'keydown', listener );
-  };
-})();
-
-const onKeyUp = (() => {
-  let listener;
-  let prev;
-
-  return synth => {
-    // Clean-up.
-    if ( prev ) {
-      prev.triggerRelease();
-    }
-
-    document.removeEventListener( 'keyup', listener );
-
-    prev = synth;
-    listener = event => {
-      const { key } = event;
-      if ( keys[ key ] ) {
-        keys[ key ] = false;
-
-        const note = keyToNote( key );
-        if ( synth instanceof Tone.PolySynth ) {
-          synth.triggerRelease( note );
-        } else if ( note && key === prevKey ) {
-          // Trigger release if this is the previous note played.
-          synth.triggerRelease();
-        }
-      }
-    };
-
-    document.addEventListener( 'keyup', listener );
-  };
-})();
-
-// Octave controls.
-document.addEventListener( 'keydown', event => {
-  // Decrease octave range (min: 0).
-  if ( event.key === 'z' ) { octave = Math.max( octave - 1, 0 ); }
-  // Increase octave range (max: 10).
-  if ( event.key === 'x' ) { octave = Math.min( octave + 1, 9 ); }
-});
-
-// Init.
-(() => {
-  const synth = new Tone.PolySynth( 10 );
-  synth.toMaster();
-
-  onKeyDown( synth );
-  onKeyUp( synth );
-})();
-</script>
 
 </body>
 
