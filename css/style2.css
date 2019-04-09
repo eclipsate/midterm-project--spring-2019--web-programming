@@ -15,10 +15,9 @@ body {
 
 h1 {
   letter-spacing: 0.1em;
-  /* line-height: 2.1em; */
   color: #47097c;
   text-align: center;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 2em;
   text-decoration: underline;
 }
@@ -26,30 +25,29 @@ h1 {
 h2 {
   font-size: 1.4em;
   text-align: center;
-  /* color: #fff; */
   padding-top: 0.3em;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-size: 1.2em;
 }
 
 #p5-sketch {
-   display: flex;
-   flex-wrap: nowrap;
-   margin: auto;
-   border: 3px solid #fff;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+  border: 3px solid #fff;
 }
 
 #p5-sketch2 {
-   display: flex;
-   flex-wrap: nowrap;
-   margin: auto;
-   border: 3px solid #fff;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: auto;
+  border: 3px solid #fff;
 }
 
 .button {
   width: 14em;
   font-size: 1.2em;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   padding: 0.5em;
   border: 2px solid #000;
   background-color: transparent;

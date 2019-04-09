@@ -10,7 +10,7 @@ body {
   letter-spacing: 0.5px;
   text-align: justify;
   font-size: 14px;
-  font-family: 'Special Elite', cursive;
+  font-family: "Special Elite", cursive;
   font-weight: 300;
 }
 
@@ -30,19 +30,13 @@ h1 {
   background-color: transparent;
   margin: 2em 0em 2em 0em;
   color: #47097c;
-  /* transition: all 5s ease 5s; */
-  /* width 9s; */
-  /* transition-timing-function: linear; */
-
 }
 
 .button:hover {
   background-color: #000;
   border: 2px solid #fff;
   letter-spacing: 0.3em;
-    transition: all 3s ease 2s;
-  /* transition: width 9s;
-  transition-timing-function: linear; */
+  transition: all 3s ease 2s;
 }
 
 a {
@@ -75,17 +69,7 @@ img {
   padding: 0.5em;
 }
 
-
-
-#text-right {
-  margin: auto;
-  width: 85%;
-  padding-bottom: 1em;
-}
-
 .flex-container {
-  /* background-color: #fff;
-  opacity: 0.4; */
   display: flex;
   flex-wrap: nowrap;
   margin: auto;
