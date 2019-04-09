@@ -1,7 +1,7 @@
 const BACKGROUND_COLOR = `#000`;
 const WWIDTH = 600;
 const HHEIGHT = 300;
-let input, button, question;
+let input, question;
 
 function setup() {
     var cnv = createCanvas(WWIDTH, HHEIGHT);
@@ -10,10 +10,6 @@ function setup() {
     fill(255);
     input = createInput();
     input.position(WWIDTH/1.3, HHEIGHT/1.95);
-
-    // button = createButton('submit');
-    // button.position(input.x + input.width, 65);
-    // button.mousePressed(greet);
 
     question = createElement('h2', 'what is your sexuality?');
     question.position(WWIDTH/2.8, HHEIGHT/2.2);
@@ -24,7 +20,6 @@ function setup() {
 
 function collage() {
   const sexuality = input.value();
-  // greeting.html('what is your sexuality?');
   input.value('');
   for (let i = 0; i < 50; i++) {
     push();
@@ -37,6 +32,5 @@ function collage() {
 }
 
 function draw() {
-
     collage();
 }
